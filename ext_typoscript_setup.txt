@@ -1,0 +1,7 @@
+config.tx_extbase {
+    objects {
+        Tx_Extbase_MVC_Controller_Argument {
+            className = Tx_ExtbaseFilter_MVC_Controller_Argument
+        }
+    }
+}
