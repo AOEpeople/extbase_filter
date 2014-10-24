@@ -6,7 +6,7 @@ This extbase extension allows you to use filters on Domain-Model properties. For
 ```php
 /**
  * @var string
- * @validate StringLength(minimum=4, maximum)
+ * @validate StringLength(minimum=4, maximum=6)
  * 
  * @filter Trim
  **/
