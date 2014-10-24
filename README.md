@@ -9,7 +9,7 @@ This extbase extension allows you to use filters on Domain-Model properties. For
  * @validate StringLength(minimum=4, maximum=6)
  * 
  * @filter Trim
- **/
+ */
  private $title;
 ```
 
