@@ -50,7 +50,7 @@ class Tx_ExtbaseFilter_MVC_Controller_Argument extends Tx_Extbase_MVC_Controller
      */
     public function setValue($rawValue)
     {
-        if (is_array($rawValue)) {
+        if (is_array($rawValue) && class_exists($this->dataType)) {
             foreach ($rawValue as $property => $value) {
                 $filters = $this->reflectionService->getPropertyTagValues($this->dataType, $property, 'filter');
                 foreach ($filters as $filter) {

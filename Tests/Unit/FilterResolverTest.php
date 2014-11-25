@@ -57,7 +57,10 @@ class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_Extbase_Tests_Un
      */
     public function shouldCreateFilterByName()
     {
-        $this->assertInstanceOf('Tx_ExtbaseFilter_Filter_TrimFilter', $this->filterResolver->resolve('Trim'));
+        $this->assertInstanceOf(
+            'Tx_ExtbaseFilter_Filter_TrimFilter',
+            $this->filterResolver->resolve('Trim')
+        );
     }
 
     /**
@@ -65,10 +68,9 @@ class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_Extbase_Tests_Un
      */
     public function shouldCreateExternalFilter()
     {
-        require_once 'Fixture/FancyFilter.php';
         $this->assertInstanceOf(
-            'Tx_MyExtension_Filter_FancyFilter',
-            $this->filterResolver->resolve('Tx_MyExtension_Filter_FancyFilter')
+            'Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyFilter',
+            $this->filterResolver->resolve('Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyFilter')
         );
     }
 }

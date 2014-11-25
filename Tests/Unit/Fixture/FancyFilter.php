@@ -27,7 +27,7 @@
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_MyExtension_Filter_FancyFilter implements Tx_ExtbaseFilter_Filter_FilterInterface
+class Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyFilter implements Tx_ExtbaseFilter_Filter_FilterInterface
 {
     /**
      * @param mixed $value
@@ -35,6 +35,6 @@ class Tx_MyExtension_Filter_FancyFilter implements Tx_ExtbaseFilter_Filter_Filte
      */
     public function filter($value)
     {
-        return $value;
+        return str_replace('boring', 'fancy', $value);
     }
 }
