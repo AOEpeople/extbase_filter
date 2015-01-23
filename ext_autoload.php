@@ -1,5 +1,5 @@
 <?php
-$extensionPath = t3lib_extMgm::extPath('extbase_filter');
+$extensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('extbase_filter');
 $extensionTestPath = $extensionPath . 'Tests/';
 return array(
     'tx_extbasefilter_tests_unit_fixture_fancyfilter' => $extensionTestPath . 'Unit/Fixture/FancyFilter.php',

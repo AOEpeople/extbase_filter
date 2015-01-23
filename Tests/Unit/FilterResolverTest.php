@@ -27,18 +27,20 @@
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_Extbase_Tests_Unit_BaseTestCase
+class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
 {
     /**
      * @var Tx_ExtbaseFilter_FilterResolver
      */
-    private $filterResolver;
+    protected $filterResolver;
 
     /**
      * initialize
      */
     public function setUp()
     {
+        parent::setUp();
+
         $this->filterResolver = $this->objectManager->get('Tx_ExtbaseFilter_FilterResolver');
     }
 

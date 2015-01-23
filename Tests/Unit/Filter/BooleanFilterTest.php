@@ -27,18 +27,20 @@
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends Tx_Extbase_Tests_Unit_BaseTestCase
+class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
 {
     /**
      * @var Tx_ExtbaseFilter_Filter_BooleanFilter
      */
-    private $filter;
+    protected $filter;
 
     /**
      * initialize
      */
     public function setUp()
     {
+        parent::setUp();
+
         $this->filter = new Tx_ExtbaseFilter_Filter_BooleanFilter();
     }
 

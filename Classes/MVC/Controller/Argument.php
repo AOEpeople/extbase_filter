@@ -27,7 +27,7 @@
  * @package ExtbaseFilter
  * @subpackage Filter
  */
-class Tx_ExtbaseFilter_MVC_Controller_Argument extends Tx_Extbase_MVC_Controller_Argument
+class Tx_ExtbaseFilter_MVC_Controller_Argument extends \TYPO3\CMS\Extbase\Mvc\Controller\Argument
 {
     /**
      * @var Tx_ExtbaseFilter_FilterResolver

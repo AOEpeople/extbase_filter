@@ -70,7 +70,7 @@ class Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getIntegerProperty()
     {
@@ -78,7 +78,7 @@ class Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel
     }
 
     /**
-     * @param int $integerProperty
+     * @param integer $integerProperty
      */
     public function setIntegerProperty($integerProperty)
     {

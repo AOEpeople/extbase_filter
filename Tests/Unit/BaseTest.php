@@ -25,45 +25,24 @@
 
 /**
  * @package ExtbaseFilter
- * @subpackage Tests
+ * @subpackage Tests_Unit
+ *
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_TrimFilterTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
+abstract class Tx_ExtbaseFilter_Tests_Unit_BaseTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
-     * @var Tx_ExtbaseFilter_Filter_TrimFilter
+     * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface The object manager
      */
-    protected $filter;
+    protected $objectManager;
 
     /**
-     * initialize
+     * Initialization.
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
-        $this->filter = new Tx_ExtbaseFilter_Filter_TrimFilter();
-    }
-
-    /**
-     * @test
-     * @param mixed $rawValue
-     * @param boolean $expectedValue
-     * @dataProvider values
-     */
-    public function shouldFilter($rawValue, $expectedValue)
-    {
-        $this->assertSame($expectedValue, $this->filter->filter($rawValue));
-    }
-
-    /**
-     * @return array
-     */
-    public function values()
-    {
-        return array(
-            array('lorem ipsum    ', 'lorem ipsum'),
-            array('   lorem ipsum    ', 'lorem ipsum'),
-            array('   ', ''),
-        );
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $this->objectManager = clone $objectManager;
     }
 }

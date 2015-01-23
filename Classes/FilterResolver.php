@@ -28,7 +28,7 @@
  * @subpackage Filter
  * @scope singleton
  */
-class Tx_ExtbaseFilter_FilterResolver implements t3lib_Singleton
+class Tx_ExtbaseFilter_FilterResolver implements \TYPO3\CMS\Core\SingletonInterface
 {
     /**
      * @var string
@@ -36,7 +36,7 @@ class Tx_ExtbaseFilter_FilterResolver implements t3lib_Singleton
     const FILTER_CLASS_NAME_PATTERN = 'Tx_ExtbaseFilter_Filter_%sFilter';
 
     /**
-     * @var Tx_Extbase_Object_ObjectManagerInterface
+     * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
      * @inject
      */
     protected $objectManager;
@@ -48,11 +48,11 @@ class Tx_ExtbaseFilter_FilterResolver implements t3lib_Singleton
     public function resolve($filterName)
     {
         if (class_exists($filterName)) {
-            return $this->objectManager->create($filterName);
+            return $this->objectManager->get($filterName);
         } else {
             $className = sprintf(self::FILTER_CLASS_NAME_PATTERN, $filterName);
             if (class_exists($className)) {
-                return $this->objectManager->create($className);
+                return $this->objectManager->get($className);
             }
         }
         throw new InvalidArgumentException('Could not resolve filter "' . $filterName . '"', 1414052577);

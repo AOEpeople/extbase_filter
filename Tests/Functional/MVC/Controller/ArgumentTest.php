@@ -27,23 +27,33 @@
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends Tx_Extbase_Tests_Unit_BaseTestCase
+class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
+    /**
+     * @var \TYPO3\CMS\Extbase\Object\ObjectManager
+     */
+    protected $objectManager;
+
     /**
      * @var Tx_ExtbaseFilter_MVC_Controller_Argument
      */
-    private $argument;
+    protected $argument;
 
     /**
      * initialize
      */
     public function setUp()
     {
-        $this->argument = $this->objectManager->create(
+        $this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $this->argument = $this->objectManager->get(
             'Tx_ExtbaseFilter_MVC_Controller_Argument',
             'fancy',
             'Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel'
         );
+
+        /* @var $propertyMappingConfiguration \TYPO3\CMS\Extbase\Property\PropertyMappingConfiguration */
+        $propertyMappingConfiguration = $this->argument->getPropertyMappingConfiguration();
+        $propertyMappingConfiguration->allowAllProperties();
     }
 
     /**
@@ -74,7 +84,7 @@ class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends Tx_E
      */
     public function doNotFilterWithPrimitiveTypes($type, $value)
     {
-        $this->argument = $this->objectManager->create(
+        $this->argument = $this->objectManager->get(
             'Tx_ExtbaseFilter_MVC_Controller_Argument',
             'fancy',
             $type
