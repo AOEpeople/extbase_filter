@@ -1,6 +1,6 @@
 config.tx_extbase {
     objects {
-        Tx_Extbase_MVC_Controller_Argument {
+        TYPO3\CMS\Extbase\Mvc\Controller\Argument {
             className = Tx_ExtbaseFilter_MVC_Controller_Argument
         }
     }

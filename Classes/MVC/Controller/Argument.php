@@ -46,7 +46,7 @@ class Tx_ExtbaseFilter_MVC_Controller_Argument extends \TYPO3\CMS\Extbase\Mvc\Co
      * @param mixed $rawValue
      * @return Tx_ExtbaseFilter_MVC_Controller_Argument
      *
-     * @see Tx_Extbase_MVC_Controller_Argument::setValue
+     * @see \TYPO3\CMS\Extbase\Mvc\Controller\Argument::setValue
      */
     public function setValue($rawValue)
     {
