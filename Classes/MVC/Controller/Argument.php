@@ -38,7 +38,7 @@ class Tx_ExtbaseFilter_MVC_Controller_Argument extends \TYPO3\CMS\Extbase\Mvc\Co
      * @var \TYPO3\CMS\Extbase\Reflection\ReflectionService
      * @inject
      */
-    private $reflectionService;
+    protected $reflectionService;
 
     /**
      * @param Tx_ExtbaseFilter_FilterResolver $filterResolver
