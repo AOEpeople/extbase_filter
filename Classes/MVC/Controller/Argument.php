@@ -35,6 +35,12 @@ class Tx_ExtbaseFilter_MVC_Controller_Argument extends \TYPO3\CMS\Extbase\Mvc\Co
     private $filterResolver;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Reflection\ReflectionService
+     * @inject
+     */
+    private $reflectionService;
+
+    /**
      * @param Tx_ExtbaseFilter_FilterResolver $filterResolver
      */
     public function injectFilterResolver(Tx_ExtbaseFilter_FilterResolver $filterResolver)
