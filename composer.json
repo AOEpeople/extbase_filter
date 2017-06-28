@@ -1,7 +1,7 @@
 {
     "name": "aoe/extbase-filter",
     "type": "typo3-cms-extension",
-    "homepage": "https://github.com/AOEpeople/felogin_bruteforce_protection",
+    "homepage": "https://github.com/AOEpeople/extbase_filter",
     "license": "GPL-3.0",
     "support": {
         "email": "dev@aoe.com",
