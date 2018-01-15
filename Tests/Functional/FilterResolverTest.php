@@ -1,8 +1,10 @@
 <?php
+namespace Aoe\ExtbaseFilter\Tests\Functional;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 AOE GmbH <dev@aoe.com>
+ *  (c) 2018 AOE GmbH <dev@aoe.com>
  *
  *  All rights reserved
  *
@@ -23,14 +25,18 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Nimut\TestingFramework\TestCase\FunctionalTestCase;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+
 /**
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
+class FilterResolverTest extends FunctionalTestCase
 {
     /**
-     * @var Tx_ExtbaseFilter_FilterResolver
+     * @var \Tx_ExtbaseFilter_FilterResolver
      */
     protected $filterResolver;
 
@@ -41,7 +47,8 @@ class Tx_ExtbaseFilter_Tests_Unit_FilterResolverTest extends Tx_ExtbaseFilter_Te
     {
         parent::setUp();
 
-        $this->filterResolver = $this->objectManager->get('Tx_ExtbaseFilter_FilterResolver');
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $this->filterResolver = $objectManager->get('Tx_ExtbaseFilter_FilterResolver');
     }
 
     /**
