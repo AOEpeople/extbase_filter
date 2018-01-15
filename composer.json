@@ -60,11 +60,6 @@
             "[ -e '.Build/bin/phpunit' ] || composer cleanupdate",
             "TYPO3_PATH_ROOT=$(pwd)/.Build/Web .Build/bin/phpunit --colors -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml Tests/Functional"
         ],
-        "test:params": [
-            "echo typo3DatabaseName=${typo3DatabaseName}",
-            "echo typo3DatabaseUsername=${typo3DatabaseUsername}",
-            "echo typo3DatabasePassword=${typo3DatabasePassword}"
-        ],
         "cleanupdate": [
             "rm -rf ./Build",
             "composer update"
