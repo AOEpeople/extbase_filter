@@ -58,7 +58,7 @@ before_script:
 script:
   - echo "Running unit tests";
   - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ut-coverage.clover" || echo;)
-  - .Build/bin/phpunit --whitelist Classes/ --colors $OPT_COVERAGE -c $UNIT_XML
+  - .Build/bin/phpunit --whitelist Classes/ --colors $OPT_COVERAGE -c $UNIT_XML Tests/Unit
 
   - echo "Running functional tests";
   - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ft-{}-coverage.clover" || echo;)
