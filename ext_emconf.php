@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'Extbase Filter',
     'description' => 'Ability to use property filters.',
     'category' => 'system',
@@ -28,4 +28,4 @@ $EM_CONF[$_EXTKEY] = array(
         'conflicts' => [],
         'suggests' => [],
     ],
-);
+];
