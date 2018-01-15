@@ -20,12 +20,12 @@ $EM_CONF[$_EXTKEY] = array(
     'lockType' => '',
     'author_company' => '',
     'version' => '1.1.1',
-    'constraints' => array(
-        'depends' => array(
+    'constraints' => [
+        'depends' => [
             'typo3' => '6.2.0-0.0.0',
             'php' => '5.3.0-0.0.0',
-        ),
-        'conflicts' => array(),
-        'suggests' => array(),
-    ),
+        ],
+        'conflicts' => [],
+        'suggests' => [],
+    ],
 );
