@@ -57,11 +57,11 @@ before_script:
 
 script:
   - echo "Running unit tests";
-  - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ut-coverage.clover" || echo;)
-  - .Build/bin/phpunit --whitelist Classes/ --colors $OPT_COVERAGE -c $UNIT_XML Tests/Unit
+  - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ut-coverage.clover --whitelist Classes" || echo;)
+  - .Build/bin/phpunit --colors $OPT_COVERAGE -c $UNIT_XML Tests/Unit
 
   - echo "Running functional tests";
-  - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ft-{}-coverage.clover" || echo;)
+  - OPT_COVERAGE=$([[ "$COVERAGE" == "1" ]] && echo "--coverage-clover=ft-{}-coverage.clover --whitelist Classes" || echo;)
   - >
     export typo3DatabaseName="typo3";
     export typo3DatabaseHost="localhost";
