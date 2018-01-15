@@ -31,7 +31,7 @@ use Nimut\TestingFramework\TestCase\UnitTestCase;
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_TrimFilterTest extends UnitTestCase
+class TrimFilterTest extends UnitTestCase
 {
     /**
      * @var /Tx_ExtbaseFilter_Filter_TrimFilter

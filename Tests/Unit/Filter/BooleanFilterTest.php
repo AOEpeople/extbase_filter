@@ -31,7 +31,7 @@ use Nimut\TestingFramework\TestCase\UnitTestCase;
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends UnitTestCase
+class BooleanFilterTest extends UnitTestCase
 {
     /**
      * @var \Tx_ExtbaseFilter_Filter_BooleanFilter
