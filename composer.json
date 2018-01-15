@@ -32,10 +32,7 @@
     "autoload-dev": {
         "classmap": [
             "Tests/Unit/Fixture/"
-        ],
-        "psr-4": {
-            "Aoe\\ExtbaseFilter\\Tests\\": "Tests"
-        }
+        ]
     },
     "replace": {
         "extbase_filter": "self.version"
