@@ -1,8 +1,10 @@
 <?php
+namespace Aoe\ExtbaseFilter\Tests\Unit\Filter;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 AOE GmbH <dev@aoe.com>
+ *  (c) 2018 AOE GmbH <dev@aoe.com>
  *
  *  All rights reserved
  *
@@ -23,14 +25,16 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Nimut\TestingFramework\TestCase\UnitTestCase;
+
 /**
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_IntegerFilterTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
+class IntegerFilterTest extends UnitTestCase
 {
     /**
-     * @var Tx_ExtbaseFilter_Filter_IntegerFilter
+     * @var \Tx_ExtbaseFilter_Filter_IntegerFilter
      */
     protected $filter;
 
@@ -41,7 +45,7 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_IntegerFilterTest extends Tx_ExtbaseFil
     {
         parent::setUp();
 
-        $this->filter = new Tx_ExtbaseFilter_Filter_IntegerFilter();
+        $this->filter = new \Tx_ExtbaseFilter_Filter_IntegerFilter();
     }
 
     /**
@@ -60,10 +64,10 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_IntegerFilterTest extends Tx_ExtbaseFil
      */
     public function values()
     {
-        return array(
-            array('154', 154),
-            array(155, 155),
-            array('11a1', 11),
-        );
+        return [
+            ['154', 154],
+            [155, 155],
+            ['11a1', 11],
+        ];
     }
 }

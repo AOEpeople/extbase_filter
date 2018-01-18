@@ -1,8 +1,10 @@
 <?php
+namespace Aoe\ExtbaseFilter\Tests\Unit\Filter;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 AOE GmbH <dev@aoe.com>
+ *  (c) 2018 AOE GmbH <dev@aoe.com>
  *
  *  All rights reserved
  *
@@ -23,14 +25,16 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Nimut\TestingFramework\TestCase\UnitTestCase;
+
 /**
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
+class BooleanFilterTest extends UnitTestCase
 {
     /**
-     * @var Tx_ExtbaseFilter_Filter_BooleanFilter
+     * @var \Tx_ExtbaseFilter_Filter_BooleanFilter
      */
     protected $filter;
 
@@ -41,7 +45,7 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends Tx_ExtbaseFil
     {
         parent::setUp();
 
-        $this->filter = new Tx_ExtbaseFilter_Filter_BooleanFilter();
+        $this->filter = new \Tx_ExtbaseFilter_Filter_BooleanFilter();
     }
 
     /**
@@ -60,11 +64,11 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_BooleanFilterTest extends Tx_ExtbaseFil
      */
     public function values()
     {
-        return array(
-            array('0', false),
-            array('1', true),
-            array(1, true),
-            array(0, false),
-        );
+        return [
+            ['0', false],
+            ['1', true],
+            [1, true],
+            [0, false],
+        ];
     }
 }

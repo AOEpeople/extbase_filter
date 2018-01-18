@@ -1,8 +1,10 @@
 <?php
+namespace Aoe\ExtbaseFilter\Tests\Unit\Filter;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 AOE GmbH <dev@aoe.com>
+ *  (c) 2018 AOE GmbH <dev@aoe.com>
  *
  *  All rights reserved
  *
@@ -23,14 +25,16 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Nimut\TestingFramework\TestCase\UnitTestCase;
+
 /**
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Unit_Filter_TrimFilterTest extends Tx_ExtbaseFilter_Tests_Unit_BaseTest
+class TrimFilterTest extends UnitTestCase
 {
     /**
-     * @var Tx_ExtbaseFilter_Filter_TrimFilter
+     * @var /Tx_ExtbaseFilter_Filter_TrimFilter
      */
     protected $filter;
 
@@ -41,7 +45,7 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_TrimFilterTest extends Tx_ExtbaseFilter
     {
         parent::setUp();
 
-        $this->filter = new Tx_ExtbaseFilter_Filter_TrimFilter();
+        $this->filter = new \Tx_ExtbaseFilter_Filter_TrimFilter();
     }
 
     /**
@@ -60,10 +64,10 @@ class Tx_ExtbaseFilter_Tests_Unit_Filter_TrimFilterTest extends Tx_ExtbaseFilter
      */
     public function values()
     {
-        return array(
-            array('lorem ipsum    ', 'lorem ipsum'),
-            array('   lorem ipsum    ', 'lorem ipsum'),
-            array('   ', ''),
-        );
+        return [
+            ['lorem ipsum    ', 'lorem ipsum'],
+            ['   lorem ipsum    ', 'lorem ipsum'],
+            ['   ', ''],
+        ];
     }
 }

@@ -15,24 +15,55 @@
             "homepage": "http://www.aoe.com"
         }
     ],
-    "config": {
-        "secure-http": false
-    },
     "require": {
-        "php": ">=5.3.0",
-        "typo3/cms-core": ">=6.2.0,<=7.6.99",
+        "php": ">=5.5.0",
+        "typo3/cms-core": ">=6.2.0,<=8.7.99",
         "typo3/cms-extbase": ">=6.2.0"
     },
     "require-dev": {
-        "typo3/cms": "^6.2"
+        "typo3/cms": "^7.6",
+        "nimut/testing-framework": "^2.0"
     },
     "autoload": {
         "classmap": [
             "Classes"
         ]
     },
+    "autoload-dev": {
+        "classmap": [
+            "Tests/Unit/Fixture/"
+        ]
+    },
     "replace": {
-        "extbase_filter": "*"
+        "extbase_filter": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p .Build/Web/typo3conf/ext/",
+            "[ -L .Build/Web/typo3conf/ext/extbase_filter ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/extbase_filter"
+        ],
+        "test:unit": [
+            "[ -e '.Build/bin/phpunit' ] || composer cleanupdate",
+            "TYPO3_PATH_ROOT=$(pwd)/.Build/Web .Build/bin/phpunit --colors -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit"
+        ],
+        "test:functional": [
+            "[ -e '.Build/bin/phpunit' ] || composer cleanupdate",
+            "TYPO3_PATH_ROOT=$(pwd)/.Build/Web .Build/bin/phpunit --colors -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml Tests/Functional"
+        ],
+        "cleanupdate": [
+            "rm -rf ./Build",
+            "composer update"
+        ]
     },
     "keywords": [
         "TYPO3",

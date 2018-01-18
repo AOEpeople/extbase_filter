@@ -1,8 +1,10 @@
 <?php
+namespace Aoe\ExtbaseFilter\Tests\Functional\MVC\Controller;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 AOE GmbH <dev@aoe.com>
+ *  (c) 2018 AOE GmbH <dev@aoe.com>
  *
  *  All rights reserved
  *
@@ -23,19 +25,23 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Nimut\TestingFramework\TestCase\FunctionalTestCase;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+
 /**
  * @package ExtbaseFilter
  * @subpackage Tests
  */
-class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class ArgumentTest extends FunctionalTestCase
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Object\ObjectManager
+     * @var ObjectManager
      */
     protected $objectManager;
 
     /**
-     * @var Tx_ExtbaseFilter_MVC_Controller_Argument
+     * @var \Tx_ExtbaseFilter_MVC_Controller_Argument
      */
     protected $argument;
 
@@ -44,7 +50,9 @@ class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYP
      */
     public function setUp()
     {
-        $this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        parent::setUp();
+
+        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $this->argument = $this->objectManager->get(
             'Tx_ExtbaseFilter_MVC_Controller_Argument',
             'fancy',
@@ -61,8 +69,8 @@ class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYP
      */
     public function filterWithIncludedFilter()
     {
-        $this->argument->setValue(array('trimProperty' => '   trimmed     '));
-        /** @var Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel $value */
+        $this->argument->setValue(['trimProperty' => '   trimmed     ']);
+        /** @var \Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel $value */
         $value = $this->argument->getValue();
         $this->assertSame('trimmed', $value->getTrimProperty());
     }
@@ -72,8 +80,8 @@ class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYP
      */
     public function filterWithExternalFilter()
     {
-        $this->argument->setValue(array('externalProperty' => 'boring value'));
-        /** @var Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel $value */
+        $this->argument->setValue(['externalProperty' => 'boring value']);
+        /** @var \Tx_ExtbaseFilter_Tests_Unit_Fixture_FancyModel $value */
         $value = $this->argument->getValue();
         $this->assertSame('fancy value', $value->getExternalProperty());
     }
@@ -98,12 +106,12 @@ class Tx_ExtbaseFilter_Tests_Functional_MVC_Controller_ArgumentTest extends \TYP
      */
     public function primitiveTypes()
     {
-        return array(
-            'integer' => array('integer', 1),
-            'int' => array('int', 2),
-            'boolean' => array('boolean', true),
-            'bool' => array('bool', false),
-            'array' => array('array', array('foo' => 'bar')),
-        );
+        return [
+            'integer' => ['integer', 1],
+            'int' => ['int', 2],
+            'boolean' => ['boolean', true],
+            'bool' => ['bool', false],
+            'array' => ['array', ['foo' => 'bar']],
+        ];
     }
 }
